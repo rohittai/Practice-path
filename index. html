@@ -2,160 +2,160 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Practice Path</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #f1f5f9;
-      padding: 24px;
-    }
-
-    .container {
-      max-width: 700px;
-      margin: auto;
-    }
-
-    .tag {
-      color: #38bdf8;
-      font-size: 13px;
-      margin-bottom: 12px;
-    }
-
-    h1 {
-      font-size: 32px;
-      margin-bottom: 12px;
-    }
-
-    .intro {
-      color: #94a3b8;
-      line-height: 1.6;
-      margin-bottom: 25px;
-    }
-
-    .card {
-      background: #1e293b;
-      padding: 20px;
-      border-radius: 16px;
-      margin-bottom: 18px;
-      border: 1px solid #334155;
-    }
-
-    h2 {
-      font-size: 19px;
-      margin-bottom: 12px;
-    }
-
-    .muted {
-      color: #94a3b8;
-      font-size: 14px;
-      line-height: 1.6;
-    }
-
-    button {
-      background: #38bdf8;
-      color: #0f172a;
-      border: none;
-      padding: 14px;
-      border-radius: 10px;
-      font-weight: bold;
-      width: 100%;
-      margin-top: 16px;
-      cursor: pointer;
-    }
-
-    .steps {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-top: 15px;
-    }
-
-    .step {
-      background: #334155;
-      padding: 10px;
-      border-radius: 8px;
-      font-size: 13px;
-    }
-
-    footer {
-      color: #64748b;
-      text-align: center;
-      margin-top: 30px;
-      font-size: 13px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Practice Path | Python Lab</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0b1120;color:#e5e7eb;font-family:Arial,sans-serif;padding:20px}
+main{max-width:760px;margin:auto}
+header{padding:18px 0 25px}
+.tag{color:#38bdf8;font-size:12px;letter-spacing:2px}
+h1{font-size:32px;margin:12px 0}
+p{line-height:1.65;color:#a5b4c8}
+.card{background:#172238;border:1px solid #283751;border-radius:16px;padding:20px;margin:18px 0}
+h2{font-size:20px;margin-top:0}
+.code{background:#080d18;border-radius:12px;padding:18px;color:#7dd3fc;font-family:monospace;font-size:16px;overflow:auto}
+.options{display:grid;gap:10px}
+.option{padding:14px;border:1px solid #334155;border-radius:10px;background:#101a2c;color:#e5e7eb;text-align:left;font-size:15px;cursor:pointer}
+.option.selected{border-color:#38bdf8;background:#19304a}
+button{cursor:pointer;border:0;border-radius:10px;padding:14px;background:#38bdf8;color:#07111f;font-weight:bold;width:100%;margin-top:12px}
+button:disabled{opacity:.5;cursor:not-allowed}
+.small{font-size:13px;color:#94a3b8}
+#feedback{padding:12px;border-radius:10px;margin-top:14px;display:none;line-height:1.5}
+.bar{height:8px;background:#334155;border-radius:20px;overflow:hidden}
+#fill{height:100%;width:0;background:#38bdf8;transition:width .3s}
+footer{text-align:center;color:#64748b;padding:25px;font-size:13px}
+</style>
 </head>
-
 <body>
-  <div class="container">
+<main>
+<header>
+<div class="tag">LEARN • PREDICT • EXPERIMENT</div>
+<h1>Practice Path</h1>
+<p>Don't just watch code. Understand it, predict it, and practice it.</p>
+</header>
 
-    <p class="tag">LEARN • PRACTICE • IMPROVE</p>
+<section class="card">
+<h2>Python Starter Lab</h2>
+<p class="small">Checkpoint 1 · Understanding print()</p>
+<div class="bar"><div id="fill"></div></div>
+<p id="progressText">0 of 1 checkpoints completed</p>
+</section>
 
-    <h1>Practice Path</h1>
+<section class="card">
+<h2>01 — Learn</h2>
+<p>Python mein <b>print()</b> function screen par text ya output dikhane ke liye use hota hai.</p>
+<div class="code">print("Hello World")</div>
+<p>Yahan <b>Hello World</b> text screen par display hoga. Text ko quotation marks ke andar likha gaya hai.</p>
+</section>
 
-    <p class="intro">
-      Don't just watch tutorials.
-      Turn what you learn into real skills.
-    </p>
+<section class="card" id="challenge">
+<h2>02 — Predict</h2>
+<p>Code run hone par kya output aayega?</p>
+<div class="code">print("I am learning Python")</div>
 
-    <div class="card">
-      <h2>Your Learning Journey</h2>
-      <p class="muted">
-        Start learning, experiment with code,
-        test your understanding and build confidence.
-      </p>
+<div class="options" id="choices">
+<button class="option" data-answer="a">Python</button>
+<button class="option" data-answer="b">I am learning Python</button>
+<button class="option" data-answer="c">print</button>
+</div>
 
-      <div class="steps">
-        <div class="step">01 Learn</div>
-        <div class="step">02 Predict</div>
-        <div class="step">03 Run</div>
-        <div class="step">04 Change</div>
-        <div class="step">05 Explain</div>
-        <div class="step">06 Revisit</div>
-      </div>
-    </div>
+<button id="submit" disabled>Check My Prediction</button>
+<div id="feedback"></div>
+</section>
 
-    <div class="card">
-      <h2>Start Practicing</h2>
-      <p class="muted">
-        Your learning journey begins with
-        small experiments and practical challenges.
-      </p>
+<section class="card">
+<h2>03 — Explain</h2>
+<p>Socho: print() ka kaam kya hai? Text ko quotation marks ke andar kyon likha?</p>
+<p class="small">Apne words mein answer sochna. Explanation tumhari understanding test karne ke liye hai.</p>
+</section>
 
-      <button onclick="startLearning()">
-        Start Learning
-      </button>
-    </div>
+<section class="card">
+<h2>04 — Checkpoint</h2>
+<p id="status">Complete the prediction to unlock this checkpoint.</p>
+<button id="complete" disabled>Complete Checkpoint</button>
+<button id="reset" style="background:#334155;color:white">Reset Progress</button>
+</section>
 
-    <div class="card">
-      <h2>Your Progress</h2>
-      <p class="muted">
-        Completed checkpoints: 0
-      </p>
-      <p class="muted">
-        Your progress tracker is coming soon.
-      </p>
-    </div>
+<footer>Practice Path · Learn by doing</footer>
+</main>
 
-    <footer>
-      Practice Path · Learn by doing
-    </footer>
+<script>
+const choices=document.querySelectorAll(".option");
+const submit=document.getElementById("submit");
+const feedback=document.getElementById("feedback");
+const complete=document.getElementById("complete");
+const statusText=document.getElementById("status");
+const fill=document.getElementById("fill");
+const progressText=document.getElementById("progressText");
 
-  </div>
+let selected=null;
+let checked=false;
+let finished=localStorage.getItem("practicePathCheckpoint1")==="true";
 
-  <script>
-    function startLearning() {
-      alert("Your learning journey is about to begin!");
-    }
-  </script>
+function updateProgress(){
+  fill.style.width=finished?"100%":"0%";
+  progressText.textContent=finished?"1 of 1 checkpoints completed":"0 of 1 checkpoints completed";
+  statusText.textContent=finished?"Checkpoint completed! Your progress is saved on this device.":"Complete the prediction to unlock this checkpoint.";
+  complete.textContent=finished?"Checkpoint Completed ✓":"Complete Checkpoint";
+  complete.disabled=!checked||finished;
+}
+
+choices.forEach(button=>{
+  button.addEventListener("click",()=>{
+    if(checked)return;
+    choices.forEach(b=>b.classList.remove("selected"));
+    button.classList.add("selected");
+    selected=button.dataset.answer;
+    submit.disabled=false;
+  });
+});
+
+submit.addEventListener("click",()=>{
+  if(!selected||checked)return;
+  checked=true;
+  feedback.style.display="block";
+  if(selected==="b"){
+    feedback.innerHTML="Correct! print() displays the text inside the quotation marks. You predicted the output correctly.";
+    feedback.style.background="#12332c";
+    feedback.style.color="#a7f3d0";
+  }else{
+    feedback.innerHTML="Not quite. print() displays the text written inside its parentheses and quotation marks. The correct output is: I am learning Python";
+    feedback.style.background="#3b2630";
+    feedback.style.color="#fecdd3";
+  }
+  choices.forEach(b=>b.disabled=true);
+  submit.disabled=true;
+  complete.disabled=false;
+  statusText.textContent="Prediction checked. You can now complete this checkpoint.";
+});
+
+complete.addEventListener("click",()=>{
+  if(!checked||finished)return;
+  finished=true;
+  localStorage.setItem("practicePathCheckpoint1","true");
+  updateProgress();
+});
+
+document.getElementById("reset").addEventListener("click",()=>{
+  localStorage.removeItem("practicePathCheckpoint1");
+  location.reload();
+});
+
+if(finished){
+  checked=true;
+  choices.forEach(b=>{
+    b.disabled=true;
+    if(b.dataset.answer==="b")b.classList.add("selected");
+  });
+  feedback.style.display="block";
+  feedback.textContent="Previously completed. Your progress is saved on this device.";
+  feedback.style.background="#12332c";
+  feedback.style.color="#a7f3d0";
+  submit.disabled=true;
+}
+updateProgress();
+</script>
 </body>
 </html>
